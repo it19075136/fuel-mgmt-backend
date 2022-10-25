@@ -15,6 +15,7 @@ builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configu
 
 builder.Services.AddScoped<IUserService,UserService>();
 
+builder.Services.AddScoped<IScheduleService, ScheduleService>();
 
 
 builder.Services.Configure<FuelStationStoreDbSettings>(
