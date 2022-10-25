@@ -24,11 +24,11 @@ namespace fuel_mgmt_backend.Controllers
         }
 
         // GET: api/<FuelStationController>/email
-       /* [HttpGet("{email}")]
+        [HttpGet("byEmail/{email}")]
         public ActionResult<List<FuelStation>> GetFuelStationsByEmail(string email)
         {
             return fuelStationService.GetFuelStationsByEmail(email);
-        }*/
+        }
 
         // GET api/<FuelStationController>/5
         [HttpGet("{id}")]

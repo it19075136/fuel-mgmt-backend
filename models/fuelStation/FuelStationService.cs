@@ -22,12 +22,12 @@ namespace fuel_mgmt_backend.models.fuelStation
             return _fuelStation.Find(fuelStation => true).ToList();
         }
 
-       /* public List<FuelStation> GetFuelStationsByEmail(string email)
+        public List<FuelStation> GetFuelStationsByEmail(string email)
         {
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
+
             return _fuelStation.Find(fuelStation => fuelStation.Email == email).ToList();
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-        }*/
+
+        }
 
         public void Delete(string id)
         {
