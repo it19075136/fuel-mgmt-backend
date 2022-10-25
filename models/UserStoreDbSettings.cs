@@ -10,5 +10,6 @@ namespace fuel_mgmt_backend.models
         public string UserCollectionName { get; set; } = String.Empty;
         public string DatabaseName { get; set; } = String.Empty;
         public string ConnectionString { get; set; } = String.Empty;
+        public string ScheduleCollectionName { get; set; } = String.Empty;
     }
 }
