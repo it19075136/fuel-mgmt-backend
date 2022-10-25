@@ -1,10 +1,11 @@
 using fuel_mgmt_backend.models;
+using fuel_mgmt_backend.models.fuelStation;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+ //Add services to the container.
 builder.Services.Configure<UserStoreDbSettings>(
     builder.Configuration.GetSection(nameof(UserStoreDbSettings)));
 
@@ -15,6 +16,17 @@ builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configu
 builder.Services.AddScoped<IUserService,UserService>();
 
 builder.Services.AddScoped<IScheduleService, ScheduleService>();
+
+
+builder.Services.Configure<FuelStationStoreDbSettings>(
+    builder.Configuration.GetSection(nameof(FuelStationStoreDbSettings)));
+
+builder.Services.AddSingleton<IFuelStationStoreDbSettings>(sp => sp.GetRequiredService<IOptions<FuelStationStoreDbSettings>>().Value);
+
+builder.Services.AddSingleton<IMongoClient>(s => new MongoClient(builder.Configuration.GetValue<string>("FuelStationStoreDbSettings:ConnectionString")));
+
+builder.Services.AddScoped<IFuelStationService, FuelStationService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
