@@ -4,7 +4,8 @@
     {
         List<Schedule> Get();
 
-        Schedule Get(string id);
+        Schedule Get(string id);        
+        List<Schedule> GetInQueueByStation(string stationId);
 
         Schedule Create(Schedule schedule);
 

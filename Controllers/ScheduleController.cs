@@ -37,6 +37,13 @@ namespace fuel_mgmt_backend.Controllers
             return schedule;
         }
 
+        // GET api/<ScheduleController>/nowInStation/5
+        [HttpGet("nowInStation/{id}")]
+        public ActionResult<List<Schedule>> GetCount(string id)
+        {
+            return scheduleService.GetInQueueByStation(id);
+        }
+
         // POST api/<ScheduleController>
         [HttpPost]
         public ActionResult<Schedule> Post([FromBody] Schedule schedule)

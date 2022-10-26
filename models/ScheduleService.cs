@@ -40,5 +40,11 @@ namespace fuel_mgmt_backend.models
             _schedules.ReplaceOne(schedule => schedule.Id == id, schedule);
             return schedule;
         }
+
+        public List<Schedule> GetInQueueByStation(string stationId)
+        {
+            return _schedules.Find(schedule => schedule.StationId == stationId && !schedule.IsPumped && schedule.Departure.Equals("")).ToList();
+        }
+
     }
 }
