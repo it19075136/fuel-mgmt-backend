@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace fuel_mgmt_backend.Controllers
 {
-    [Route("api/[Controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {

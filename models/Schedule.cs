@@ -14,8 +14,8 @@ namespace fuel_mgmt_backend.models
         [BsonElement("arrival")]
         public string Arrival { get; set; } = String.Empty;
         [BsonElement("date")]
-        public string Date { get; set; } = String.Empty;
-        [BsonElement("departure")]
+        public string StationId { get; set; } = String.Empty;
+        [BsonElement("stationId")]
         public string Departure { get; set; } = String.Empty;
         [BsonElement("isPumped")]
         public Boolean IsPumped { get; set; } = false;
