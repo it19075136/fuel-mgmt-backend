@@ -1,4 +1,7 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System.Text.RegularExpressions;
+
 namespace fuel_mgmt_backend.models.fuelStation
 {
     public class FuelStationService : IFuelStationService
@@ -42,6 +45,20 @@ namespace fuel_mgmt_backend.models.fuelStation
         public void Update(string id, FuelStation fuelStation)
         {
             _fuelStation.ReplaceOne(fuelStation => fuelStation.Id == id, fuelStation);
+        }
+
+        public List<FuelStation> GetStationsBySearch(string search)
+        {
+            //{ StationName:{ $regex:/search/i} }
+            /*return _fuelStation.Find(fuelStation => { fuelStation.StationName:{ $regex:/ search /i} }).ToList();*/
+            /*return _fuelStation.Find(fuelStation =>{ fuelStation.StationName: { $regex: 'JOHN', $options: 'i' } }).ToList();*/
+            var queryExpr = new BsonRegularExpression(new Regex(search, RegexOptions.IgnoreCase));
+           var  builder = Builders<FuelStation>.Filter;
+            var filter = builder.Regex("stationName", queryExpr);
+            var matchedDocuments = _fuelStation.FindSync(filter).ToList();
+            return matchedDocuments;
+
+
         }
 
     }

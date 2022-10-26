@@ -84,5 +84,12 @@ namespace fuel_mgmt_backend.Controllers
 
             return Ok();
         }
+
+        //query params api/<FuelStationController>/
+        [HttpGet("bySearch/{search}")]
+        public ActionResult<List<FuelStation>> GetStationsBySearch(String search)
+        {
+            return fuelStationService.GetStationsBySearch(search);
+        }
     }
 }
