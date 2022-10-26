@@ -35,9 +35,10 @@ namespace fuel_mgmt_backend.models
             return _schedules.Find(schedule => schedule.Id == id).FirstOrDefault();
         }
 
-        public void Update(string id, Schedule schedule)
+        public Schedule Update(string id, Schedule schedule)
         {
             _schedules.ReplaceOne(schedule => schedule.Id == id, schedule);
+            return schedule;
         }
     }
 }

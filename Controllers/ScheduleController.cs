@@ -48,7 +48,7 @@ namespace fuel_mgmt_backend.Controllers
 
         // PUT api/<ScheduleController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(string id, [FromBody] Schedule schedule)
+        public ActionResult<Schedule> Put(string id, [FromBody] Schedule schedule)
         {
             var existingSchedule = scheduleService.Get(id);
 
@@ -58,9 +58,8 @@ namespace fuel_mgmt_backend.Controllers
 
             }
 
-            scheduleService.Update(id, schedule);
+            return scheduleService.Update(id, schedule);
 
-            return NoContent();
         }
 
         // DELETE api/<ScheduleController>/5

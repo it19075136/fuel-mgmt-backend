@@ -8,7 +8,7 @@
 
         Schedule Create(Schedule schedule);
 
-        void Update(String id, Schedule schedule);
+        Schedule Update(String id, Schedule schedule);
 
         void delete(String id);
     }
