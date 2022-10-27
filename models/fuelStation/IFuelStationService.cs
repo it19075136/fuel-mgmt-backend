@@ -7,7 +7,7 @@
         List<FuelStation> GetFuelStationsByEmail(string email);
         List<FuelStation> GetStationsBySearch(string search);
         FuelStation Create(FuelStation fuelStation);
-        void Update(string id, FuelStation fuelStation);
+        FuelStation Update(string id, FuelStation fuelStation);
         void Delete(string id);
 
     }

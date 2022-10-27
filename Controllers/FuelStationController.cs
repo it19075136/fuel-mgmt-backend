@@ -55,7 +55,7 @@ namespace fuel_mgmt_backend.Controllers
 
         // PUT api/<FuelStationController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(string id, [FromBody] FuelStation fuelStation)
+        public ActionResult<FuelStation> Put(string id, [FromBody] FuelStation fuelStation)
         {
             var existingFuelStation = fuelStationService.Get(id);
 
@@ -64,9 +64,8 @@ namespace fuel_mgmt_backend.Controllers
                 return NotFound($"existingFuelStation with Id = {id} not found");
             }
 
-            fuelStationService.Update(id, fuelStation);
+            return fuelStationService.Update(id, fuelStation);
 
-            return NoContent();
         }
 
         // DELETE api/<FuelStationController>/5

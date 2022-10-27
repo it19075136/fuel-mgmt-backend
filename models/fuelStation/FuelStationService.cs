@@ -42,9 +42,10 @@ namespace fuel_mgmt_backend.models.fuelStation
             return _fuelStation.Find(fuelStation => fuelStation.Id == id).FirstOrDefault();
         }
 
-        public void Update(string id, FuelStation fuelStation)
+        public FuelStation Update(string id, FuelStation fuelStation)
         {
             _fuelStation.ReplaceOne(fuelStation => fuelStation.Id == id, fuelStation);
+            return fuelStation;
         }
 
         public List<FuelStation> GetStationsBySearch(string search)
