@@ -9,6 +9,7 @@ namespace fuel_mgmt_backend.models
     {
         List<User> Get();
         User Get(string id);
+        User GetByEmail(string email);
         User Create(User user);
         void Update(string id, User user);
         void Delete(string id);
