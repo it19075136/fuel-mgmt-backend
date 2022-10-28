@@ -42,5 +42,9 @@ namespace fuel_mgmt_backend.models
         {
             _users.ReplaceOne(user => user.Id == id, user);
         }
+        public User GetByEmail(string email)
+        {
+            return _users.Find(user => user.Email == email).FirstOrDefault();
+        }
     }
 }

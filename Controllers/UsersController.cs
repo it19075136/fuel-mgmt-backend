@@ -77,5 +77,17 @@ namespace fuel_mgmt_backend.Controllers
 
             return Ok();
         }
+        [HttpGet("byEmail/{email}")]
+        public ActionResult<User> GetByEmail(string email)
+        {
+            var user = userService.GetByEmail(email);
+
+            if (user == null)
+            {
+                return NotFound($"User with Id = {email} not found");
+            }
+
+            return user;
+        }
     }
 }
