@@ -84,7 +84,8 @@ namespace fuel_mgmt_backend.Controllers
 
             if (user == null)
             {
-                return NotFound($"User with Id = {email} not found");
+                User user1 = new User();
+                return user1;
             }
 
             return user;
